@@ -8,10 +8,12 @@ function App() {
   return (
     <div className="m-4 flex flex-col justify-center items-center">
       <h1 className="mb-4 font-bold text-3xl">QuickNotes</h1>
-      <FormInput notes={notes} setNotes={setNotes} />
-      <NoteList notes={notes}/>
+      <div className="flex flex-col gap-2">
+        <FormInput notes={notes} setNotes={setNotes} />
+        <NoteList notes={notes} />
+      </div>
     </div>
-  )
+  );
 }
 
 export default App;

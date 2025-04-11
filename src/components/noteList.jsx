@@ -14,4 +14,4 @@ function NoteList({notes}) {
     )
 }
 
-export default NoteList;
+export default NoteList;        
