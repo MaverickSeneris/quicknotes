@@ -18,7 +18,9 @@ function NoteList({ notes, deleteNote, toggleNote}) {
               >
                 <span>✔</span>
               </div>
-              <span>{note.name}</span>
+              <span className={note.isDone ? "line-through" : undefined}>
+                {note.name}
+              </span>
               <button
                 className="cursor-pointer ml-auto text-red-600 font-bold hover:text-red-800 hover:scale-105 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
                 onClick={() => deleteNote(note.id)}
