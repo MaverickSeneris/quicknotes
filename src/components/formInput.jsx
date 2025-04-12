@@ -7,7 +7,12 @@ function FormInput({ addNewNote }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (!title.trim()) return;
-    const newNote = { id: generateId(), name: title, isDone: false };
+    const newNote = {
+      id: generateId(),
+      name: title,
+      isDone: false,
+      isEditing: false,
+    };
     addNewNote(newNote);
     setTitle("");
   }

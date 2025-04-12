@@ -5,20 +5,26 @@ import NoteList from "./components/noteList";
 function App() {
   const [notes, setNotes] = useState([]);
 
-  function addNewNote(newNote) { 
-    setNotes(prevNote => [...prevNote, newNote])
+  function addNewNote(newNote) {
+    setNotes((prevNote) => [...prevNote, newNote]);
   }
 
   function deleteNote(noteToDel) {
-    setNotes((prevNotes) =>
-      prevNotes.filter((note) => note.id !== noteToDel)
-    );
+    setNotes((prevNotes) => prevNotes.filter((note) => note.id !== noteToDel));
   }
 
   function toggleNote(noteId) {
     setNotes((prevNote) =>
       prevNote.map((note) =>
         note.id === noteId ? { ...note, isDone: !note.isDone } : note
+      )
+    );
+  }
+
+  function toggleEdit(noteId) {
+    setNotes((prevNotes) =>
+      prevNotes.map((note) =>
+        note.id === noteId ? { ...note, isEditing: !note.isEditing } : note
       )
     );
   }
@@ -30,7 +36,12 @@ function App() {
       <h1 className="mb-4 font-bold text-3xl">QuickNotes</h1>
       <div className="flex flex-col gap-2">
         <FormInput notes={notes} addNewNote={addNewNote} />
-        <NoteList notes={notes} deleteNote={deleteNote} toggleNote={toggleNote} />
+        <NoteList
+          notes={notes}
+          deleteNote={deleteNote}
+          toggleNote={toggleNote}
+          toggleEdit={toggleEdit}
+        />
       </div>
     </div>
   );

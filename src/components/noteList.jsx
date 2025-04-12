@@ -1,6 +1,4 @@
-function NoteList({ notes, deleteNote, toggleNote}) {
-  
-
+function NoteList({ notes, deleteNote, toggleNote, toggleEdit }) {
   return (
     <div>
       <span>
@@ -16,13 +14,19 @@ function NoteList({ notes, deleteNote, toggleNote}) {
                   "flex content-center items-center w-6 h-6 mr-2 border rounded-[50px]"
                 }
               >
-                <span>✔</span>
+                <span>{note.isDone && "✔"}</span>
               </div>
               <span className={note.isDone ? "line-through" : undefined}>
                 {note.name}
               </span>
               <button
-                className="cursor-pointer ml-auto text-red-600 font-bold hover:text-red-800 hover:scale-105 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
+                onClick={()=>toggleEdit(note.id)}
+                className="cursor-pointer ml-auto text-green-400 font-bold text-sm hover:scale-105 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
+              >
+                Edit
+              </button>
+              <button
+                className="cursor-pointer ml-2 hover:scale-105 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
                 onClick={() => deleteNote(note.id)}
               >
                 ❌
