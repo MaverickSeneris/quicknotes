@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FormInput from "./components/formInput";
 import NoteList from "./components/noteList";
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("storedNotes")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("storedNotes", JSON.stringify(notes));
+  }, [notes]);
 
   function addNewNote(newNote) {
     setNotes((prevNote) => [...prevNote, newNote]);

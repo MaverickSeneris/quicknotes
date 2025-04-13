@@ -9,7 +9,6 @@ function NoteList({ notes, deleteNote, toggleNote, toggleEdit, updateNote }) {
     const id = e.currentTarget.dataset.id;
     updateNote(id, newTitle)
     setNewTitle("")
-
   }
   
   return (
@@ -22,19 +21,22 @@ function NoteList({ notes, deleteNote, toggleNote, toggleEdit, updateNote }) {
               key={index}
             >
               {note.isEditing ? (
-                <form data-id={note.id} onSubmit={handleSubmit} className="flex w-full content-between items-center">
+                <form
+                  data-id={note.id}
+                  onSubmit={handleSubmit}
+                  className="flex w-full content-between items-center"
+                >
                   <input
                     className="border-0 outline-0 mr-auto flex-grow"
                     type="text"
                     value={newTitle}
                     placeholder={note.name}
-                    onChange={e=>setNewTitle(e.target.value)}
+                    onChange={(e) => setNewTitle(e.target.value)}
                   />
-                  <button
-                    className="ml-2 cursor-pointer self-end text-green-500 font-bold text-sm"
-                  >
+                  <button className="ml-2 cursor-pointer self-end text-green-500 font-bold text-sm">
                     💾
                   </button>
+                  <button className="ml-1" onClick={()=>toggleEdit(note.id)}>🚫</button>
                 </form>
               ) : (
                 <>
