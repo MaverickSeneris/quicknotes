@@ -29,6 +29,16 @@ function App() {
     );
   }
 
+  function updateNote(noteId, updatedName) {
+    setNotes((prevNotes) =>
+      prevNotes.map((note) =>
+        note.id === noteId
+          ? { ...note, name: updatedName, isEditing: !note.isEditing }
+          : note
+      )
+    );
+  }
+
   console.log(notes);
 
   return (
@@ -41,6 +51,7 @@ function App() {
           deleteNote={deleteNote}
           toggleNote={toggleNote}
           toggleEdit={toggleEdit}
+          updateNote={updateNote}
         />
       </div>
     </div>
