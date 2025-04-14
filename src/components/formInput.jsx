@@ -1,7 +1,7 @@
 import { useState } from "react";
 import generateId from "../utils/generateId";
 
-function FormInput({ addNewNote }) {
+function FormInput({isDark, addNewNote }) {
   const [title, setTitle] = useState("");
 
   function handleSubmit(e) {
@@ -20,7 +20,8 @@ function FormInput({ addNewNote }) {
     <div>
       <form className="flex gap-2" onSubmit={handleSubmit}>
         <input
-          className="border p-1 rounded-[10px] transition duration-200 ease-in-out hover:border-blue-500 "
+          className={`border border-black ${isDark && "border-white"} ${isDark && "placeholder-gray-400"}
+          p-2 rounded-[10px] transition duration-200 ease-in-out hover:border-blue-500`}
           type="text"
           placeholder="enter notes"
           value={title}

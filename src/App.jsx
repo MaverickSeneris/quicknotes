@@ -7,6 +7,14 @@ function App() {
     JSON.parse(localStorage.getItem("storedNotes")) || []
   );
 
+  const [isDark, setIsDark] = useState(
+    JSON.parse(localStorage.getItem("theme")) || false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(isDark));
+  }, [isDark]);
+
   useEffect(() => {
     localStorage.setItem("storedNotes", JSON.stringify(notes));
   }, [notes]);
@@ -45,15 +53,35 @@ function App() {
     );
   }
 
+  function toggleTheme() {
+    setIsDark((prev) => !prev);
+  }
+
   console.log(notes);
 
   return (
-    <div className="m-4 flex flex-col justify-center items-center">
-      <h1 className="mb-4 font-bold text-3xl">QuickNotes</h1>
+    <div
+      className={`h-100 ${
+        isDark && "bg-gray-950"
+      } flex flex-col items-center pt-6`}
+    >
+      <div className="w-75 mb-4 flex content-between items-center">
+        <h1 className={`${isDark && "text-white"} font-bold text-3xl`}>
+          QuickNotes
+        </h1>
+        <div className="ml-auto" onClick={toggleTheme}>
+          {isDark ? " 🌜 " : "  🌞"}
+        </div>
+      </div>
       <div className="flex flex-col gap-2">
-        <FormInput notes={notes} addNewNote={addNewNote} />
+        <FormInput
+          notes={notes}
+          isDark={isDark}
+          addNewNote={addNewNote}
+        />
         <NoteList
           notes={notes}
+          isDark={isDark}
           deleteNote={deleteNote}
           toggleNote={toggleNote}
           toggleEdit={toggleEdit}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function NoteList({ notes, deleteNote, toggleNote, toggleEdit, updateNote }) {
+function NoteList({ notes, isDark, deleteNote, toggleNote, toggleEdit, updateNote }) {
   const [newTitle, setNewTitle] = useState("")
 
   function handleSubmit(e) { 
@@ -17,7 +17,7 @@ function NoteList({ notes, deleteNote, toggleNote, toggleEdit, updateNote }) {
         {notes.map((note, index) => {
           return (
             <div
-              className="group flex items-center px-2 py-2 border-[1px] my-1 rounded-[10px] transition duration-100 ease-in-out hover:border-blue-500 hover:border-[3px]"
+              className={`${isDark && "border-white"} ${isDark && "text-white"} group flex items-center px-2 py-2 border-[1px] my-1 rounded-[10px] transition duration-100 ease-in-out hover:border-blue-500 hover:border-[3px]`}
               key={index}
             >
               {note.isEditing ? (
