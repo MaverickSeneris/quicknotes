@@ -34,10 +34,10 @@ function FormInput({ isDark, addNewNote }) {
           onChange={(e) => setTitle(e.target.value)}
         />
         <button
-          className="cursor-pointer bg-green-500 hover:bg-green-600 active:scale-95 text-white px-4 py-2 rounded-[10px] transition duration-200"
+          className="w-30 cursor-pointer bg-green-500 hover:bg-green-600 active:scale-95 text-white px-4 py-2 rounded-[10px] transition duration-200"
           type="submit"
         >
-          Submit
+          Add
         </button>
       </form>
     </div>

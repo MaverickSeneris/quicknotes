@@ -80,7 +80,7 @@ function App() {
         <h1 className={`${isDark && "text-white"} font-bold text-3xl`}>
           QuickNotes
         </h1>
-        <div className="ml-auto" onClick={toggleTheme}>
+        <div className="ml-auto pl-2 text-3xl" onClick={toggleTheme}>
           {isDark ? " 🌜 " : "  🌞"}
         </div>
       </div>

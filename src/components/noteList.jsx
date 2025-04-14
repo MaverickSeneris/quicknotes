@@ -51,11 +51,11 @@ function NoteList({
                     className="border-0 outline-0 mr-auto flex-grow"
                   />
                   {/* Save button */}
-                  <button className="ml-2 cursor-pointer self-end text-green-500 font-bold text-sm">
+                  <button className="ml-2 cursor-pointer self-end text-green-500 font-bold text-xl">
                     💾
                   </button>
                   {/* Cancel editing */}
-                  <button className="ml-1" onClick={() => toggleEdit(note.id)}>
+                  <button className="ml-2 text-xl" onClick={() => toggleEdit(note.id)}>
                     🚫
                   </button>
                 </form>
@@ -77,7 +77,7 @@ function NoteList({
                   {/* Edit button - only shows on hover (group-hover) */}
                   <button
                     onClick={() => toggleEdit(note.id)}
-                    className="cursor-pointer ml-auto text-green-400 font-bold text-sm hover:scale-105 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
+                    className="cursor-pointer ml-auto text-green-400 font-bold text-xl hover:scale-105 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
                   >
                     📝
                   </button>
@@ -85,7 +85,7 @@ function NoteList({
                   {/* Delete button - also appears on hover */}
                   <button
                     onClick={() => deleteNote(note.id)}
-                    className="cursor-pointer ml-2 hover:scale-105 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
+                    className="cursor-pointer text-xl ml-2 hover:scale-105 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
                   >
                     ❌
                   </button>
