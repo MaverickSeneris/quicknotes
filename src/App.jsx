@@ -76,8 +76,8 @@ function App() {
       } flex flex-col items-center pt-6`}
     >
       {/* Header */}
-      <div className="w-75 mb-4 flex content-between items-center">
-        <h1 className={`${isDark && "text-white"} font-bold text-3xl`}>
+      <div className="w-80 mb-4 flex content-between items-center">
+        <h1 className={`${isDark && "text-white"} font-bold text-5xl`}>
           QuickNotes
         </h1>
         <div className="ml-auto pl-2 text-3xl" onClick={toggleTheme}>
