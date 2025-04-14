@@ -27,14 +27,14 @@ function NoteList({
         {notes.map((note, index) => {
           return (
             <div
-              key={index} // ⚠️ index as key is okay for static lists, but avoid if list changes often
+              key={note.id}
               className={`
                 ${isDark && "border-white"} 
-                ${isDark && "text-white"} 
-                group flex items-center px-2 py-2 
+                ${isDark && "text-white"} text-xl font-semibold
+                group flex items-center px-4 py-2 
                 border-[1px] my-1 rounded-[10px] 
                 transition duration-100 ease-in-out 
-                hover:border-blue-500 hover:border-[3px]`}
+                hover:border-blue-500 hover:border-[3px] mb-3.5 h-14`}
             >
               {/* Conditional rendering: if editing, show input form */}
               {note.isEditing ? (
@@ -55,7 +55,10 @@ function NoteList({
                     💾
                   </button>
                   {/* Cancel editing */}
-                  <button className="ml-2 text-xl" onClick={() => toggleEdit(note.id)}>
+                  <button
+                    className="ml-2 text-xl"
+                    onClick={() => toggleEdit(note.id)}
+                  >
                     🚫
                   </button>
                 </form>

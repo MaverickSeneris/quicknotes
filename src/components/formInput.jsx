@@ -22,7 +22,7 @@ function FormInput({ isDark, addNewNote }) {
   }
 
   return (
-    <div>
+    <div className="mb-4">
       <form className="flex gap-2" onSubmit={handleSubmit}>
         <input
           className={`border border-black ${isDark && "border-white"} ${isDark && "text-white"} ${
