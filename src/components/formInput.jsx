@@ -1,27 +1,33 @@
 import { useState } from "react";
 import generateId from "../utils/generateId";
 
-function FormInput({isDark, addNewNote }) {
-  const [title, setTitle] = useState("");
+// FormInput handles the creation of new notes
+function FormInput({ isDark, addNewNote }) {
+  const [title, setTitle] = useState(""); // Stores the input field value
 
+  // Handles the form submission
   function handleSubmit(e) {
-    e.preventDefault();
-    if (!title.trim()) return;
+    e.preventDefault(); // Prevent page reload
+    if (!title.trim()) return; // Prevent empty notes
+
     const newNote = {
-      id: generateId(),
-      name: title,
-      isDone: false,
-      isEditing: false,
+      id: generateId(), // Generate unique ID
+      name: title, // Note content
+      isDone: false, // Default state: not done
+      isEditing: false, // Default state: not editing
     };
-    addNewNote(newNote);
-    setTitle("");
+
+    addNewNote(newNote); // Call parent function to add the note
+    setTitle(""); // Clear input
   }
+
   return (
     <div>
       <form className="flex gap-2" onSubmit={handleSubmit}>
         <input
-          className={`border border-black ${isDark && "border-white"} ${isDark && "placeholder-gray-400"}
-          p-2 rounded-[10px] transition duration-200 ease-in-out hover:border-blue-500`}
+          className={`border border-black ${isDark && "border-white"} ${isDark && "text-white"} ${
+            isDark && "placeholder-gray-400"
+          } p-2 rounded-[10px] transition duration-200 ease-in-out hover:border-blue-500`}
           type="text"
           placeholder="enter notes"
           value={title}
