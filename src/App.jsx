@@ -71,8 +71,8 @@ function App() {
 
   return (
     <div
-      className={`h-[100vh] ${
-        isDark && "bg-gray-950"
+      className={`h-[100vh] transition-colors duration-500 ${
+        isDark ? "bg-gray-950" : "bg-white"
       } flex flex-col items-center pt-6`}
     >
       {/* Header */}
