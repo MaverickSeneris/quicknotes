@@ -80,7 +80,7 @@ function NoteList({
                   {/* Edit button - only shows on hover (group-hover) */}
                   <button
                     onClick={() => toggleEdit(note.id)}
-                    className="cursor-pointer ml-auto text-green-400 font-bold text-xl hover:scale-130 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
+                    className="cursor-pointer ml-auto text-green-400 font-bold text-xl hover:scale-130 transition duration-150"
                   >
                     📝
                   </button>
@@ -88,7 +88,7 @@ function NoteList({
                   {/* Delete button - also appears on hover */}
                   <button
                     onClick={() => deleteNote(note.id)}
-                    className="cursor-pointer text-xl ml-2 hover:scale-130 transition duration-150 opacity-0 group-hover:opacity-100 group-hover:block"
+                    className="cursor-pointer text-xl ml-2 hover:scale-130 transition duration-150"
                   >
                     🗑️
                   </button>
